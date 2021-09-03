@@ -1,0 +1,12 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:focus {
+    color: #333 !important;
+    text-shadow: none;
+}
+
+#result {
+    text-align: left;
+}
