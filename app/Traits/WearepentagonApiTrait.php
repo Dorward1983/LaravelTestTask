@@ -9,7 +9,7 @@ trait WearepentagonApiTrait
     /**
      * @return string
      */
-    private function getToken():string
+    private function getToken(): string
     {
         $response = Http::asForm()->post(env('API_URL') . '/devInterview/API/en/access-token', [
             'client_id' => env('API_USER'),
@@ -22,14 +22,14 @@ trait WearepentagonApiTrait
     /**
      * @return string
      */
-    private function getDataFromApi():string
+    private function getDataFromApi(): string
     {
         $token = $this->getToken();
         $data = '';
 
         if (!empty($token)) {
             $data = Http::withToken($token)->get(env('API_URL') . '/devInterview/API/en/get-random-test-feed');
-            $data = json_decode($data->body() )?? '';
+            $data = json_decode($data->body())?? '';
         }
 
         return $data;
@@ -38,7 +38,7 @@ trait WearepentagonApiTrait
     /**
      * @return array
      */
-    private function prepareData():array
+    private function prepareData(): array
     {
         $data = $this->getDataFromApi();
         $response = [];
@@ -83,7 +83,7 @@ trait WearepentagonApiTrait
      * @param string $extension
      * @return string
      */
-    private function base64ToImage(string $sku, string $value, string $extension):string
+    private function base64ToImage(string $sku, string $value, string $extension): string
     {
         $fileName = "storage/img/{$sku}.{$extension}";
         $path = public_path($fileName);

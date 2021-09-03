@@ -21,7 +21,7 @@ class Order extends Model
      * @param array $data
      * @return Order
      */
-    public static function saveFromApi(array $data):Order
+    public static function saveFromApi(array $data): Order
     {
         $order = Order::where('id', $data['id'])->first(['id', 'total', 'shipping_total', 'create_time', 'timezone']);
 

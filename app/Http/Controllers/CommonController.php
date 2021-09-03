@@ -28,7 +28,7 @@ class CommonController extends Controller
      *     @OA\Response(response="200",description="ok"),
      * )
      */
-    public function getFeed():string
+    public function getFeed(): string
     {
         $response = $this->prepareData();
         if (!empty($response['model'])) {

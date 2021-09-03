@@ -19,7 +19,7 @@ class Product extends Model
      * @param array $data
      * @return Product
      */
-    public static function saveFromApi(array $data):Product
+    public static function saveFromApi(array $data): Product
     {
         $product = Product::where('SKU', $data['SKU'])->first(['title', 'SKU', 'image']);
 
