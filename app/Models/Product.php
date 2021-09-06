@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Contracts\WearepentagonApiInterface;
 
-class Product extends Model
+class Product extends Model implements WearepentagonApiInterface
 {
     use HasFactory;
 
@@ -17,9 +18,9 @@ class Product extends Model
 
     /**
      * @param array $data
-     * @return Product
+     * @return WearepentagonApiInterface
      */
-    public static function saveFromApi(array $data): Product
+    public static function saveFromApi(array $data): WearepentagonApiInterface
     {
         $product = Product::where('SKU', $data['SKU'])->first(['title', 'SKU', 'image']);
 
